@@ -1,0 +1,28 @@
+-- Version 0.1 --
+
+    - Desarrollamos los archivos sql para crear una base de datos MySql
+    - Creamos la documentacion del Anteproyecto.
+    - Empezamos Api en SpringBoot.
+
+-- version 0.5 --
+
+    - Documentacion hasta 3.6
+    - Debido a errores en la Api cambiamos de SpringBoot a Laravel
+
+-- version 0.9 --
+
+    - Api completa con seguridad
+    - Comienzo de Front en Angular
+
+-- Version 1.0 --
+
+    - Desarrollo Front simple para probar funcionamiento
+
+-- Version 1.5 -- 
+
+    - Incorporación de elementos de mayor complejidad puede aumentar la calidad del proyecto.
+    - Terminamos de Documentar
+
+-- version 1.5.1
+
+    - modificacion del home de Angular para separar alumnos de docentes.
