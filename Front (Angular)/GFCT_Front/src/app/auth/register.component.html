@@ -1,0 +1,77 @@
+<div class="container py-5" style="margin-bottom: 35px;">
+  <h2 class="p-3">Registrar Usuario</h2>
+  <form (ngSubmit)="submitForm()" #myForm="ngForm" class="user-container" novalidate #f="ngForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="datos.nombre" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="apellidos" class="form-label">Apellidos:</label>
+            <input type="text" class="form-control" id="apellidos" name="apellidos" [(ngModel)]="datos.apellidos" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="datos.password" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="datos.email" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="dni" class="form-label">DNI:</label>
+            <input type="text" class="form-control" id="dni" name="dni" [(ngModel)]="datos.dni" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono:</label>
+            <input type="tel" class="form-control" id="telefono" name="telefono" [(ngModel)]="datos.telefono">
+          </div>
+        </div>
+        
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="edad" class="form-label">Edad:</label>
+              <input type="number" class="form-control" id="edad" name="edad" [(ngModel)]="datos.edad" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+              <div class="mb-3">
+                <label for="rol" class="form-label">Rol:</label>
+                <select class="form-select" id="rol" name="rol" [(ngModel)]="datos.rol" required>
+                  <option value="docente">Docente</option>
+                  <option value="alumno">Alumno</option>
+                </select>
+              </div>
+          </div>
+        </div>
+      <div class="row justify-content-around">
+          <button type="submit" class="btn btn-dark col-md-2 col-4 py-2" [disabled]="!f.valid"><i class="fa-solid fa-upload fa-xl" style="color: #a7cae7;"></i> Guardar</button>
+
+          <a [href]="''" class="btn btn-danger col-md-2 col-4 py-2"><i class="fa-solid fa-circle-xmark fa-xl"  style="color: rgb(28, 25, 25);"></i> Cancelar</a>
+      </div>
+    </form>
+
+    <!-- Mostrar errores -->
+    <div *ngIf="errores.length > 0" class="mt-4">
+      <div *ngFor="let error of errores" class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    </div>
+</div>

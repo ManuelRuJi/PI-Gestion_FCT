@@ -1,0 +1,41 @@
+<app-spinner></app-spinner>
+<div class="container py-5 col-9 col-md-10 col-lg-8" style="margin-bottom: 35px;">
+    <h2 class="p-3" >Editar Empresa</h2>
+    <form (ngSubmit)="submitForm()" #myForm="ngForm" class="user-container" novalidate #f="ngForm">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" 
+              [(ngModel)]="datos.nombre" required placeholder="Introduce el Nombre">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="cif" class="form-label">CIF:</label>
+              <input type="text" class="form-control" id="cif" name="cif" 
+              [(ngModel)]="datos.cif" required placeholder="Introduce el CIF">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="num_empleado" class="form-label">Numero de empleados:</label>
+              <input type="number" class="form-control" id="num_empleado" name="num_empleado" 
+              [(ngModel)]="datos.num_empleado" required placeholder="Introduce los Empleados">
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-around">
+            <button type="submit" class="btn btn-dark col-md-2 col-4 py-2" [disabled]="!f.valid"><i class="fa-solid fa-upload fa-xl" style="color: #a7cae7;"></i> Guardar</button>
+
+            <a [href]="'/empresa/'+ datos.id" class="btn btn-danger col-md-2 col-4 py-2"><i class="fa-solid fa-circle-xmark fa-xl"  style="color: #bfbfbf;"></i> Cancelar</a>
+        </div>
+      </form>
+
+      <!-- Mostrar errores -->
+    <div *ngIf="errores.length > 0" class="mt-4">
+      <div *ngFor="let error of errores" class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    </div>
+</div>

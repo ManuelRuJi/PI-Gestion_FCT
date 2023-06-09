@@ -1,0 +1,50 @@
+<app-spinner></app-spinner>
+<div class="container py-5 col-8 col-sm-6 col-md-5 col-lg-3" style="margin-bottom: 64px;">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="empresa-tab" data-bs-toggle="tab" data-bs-target="#empresa" type="button" role="tab" aria-controls="empresa-tab-pane" aria-selected="true">empresa</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="sede-tab" data-bs-toggle="tab" data-bs-target="#sede" type="button" role="tab" aria-controls="sede-tab-pane" aria-selected="true">sede</button>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="empresa" role="tabpanel" aria-labelledby="empresa-tab" tabindex="0">
+        <div class="datos-container border">
+          <h2>Datos Empresa</h2>
+          <div class="datos-details">
+            <div class="row">
+              <div class="col">
+                <p><strong>Nombre:</strong>  {{datos.nombre}}</p>
+                <p><strong>CIF:</strong>  {{datos.cif}}</p>
+                <p><strong>Numero de empleados:</strong> {{datos.num_empleado}}</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <a [routerLink]="'/empresa/' + datos.id + '/update'" class="btn btn-secondary fw-bold py-2 mt-3 d-flex">
+              <p class="m-0" style="align-self: center;margin: 0 auto !important;"><i class="fa-solid fa-pen-nib fa-lg" style="color:#a7cae7;"></i> Editar</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="sede" role="tabpanel" aria-labelledby="sede-tab" tabindex="0">
+        <div class="datos-container border">
+            <h2>Datos Sedes</h2>
+            <hr>
+            <div class="datos-details" *ngFor="let sede of datos.sedes">
+              <div class="row">
+                <div class="col">
+                  <p><strong>Nombre:</strong> {{sede.nombre}}</p>
+                  <p><strong>Direccion:</strong> {{sede.direccion}}</p>
+                  <p><strong>Telefono:</strong> {{sede.telefono}}</p>
+                </div>
+              </div>
+              <a class="btn btn-link" [href]="'sede/'+sede.id"> Detalles Sedes</a>
+              <hr>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>

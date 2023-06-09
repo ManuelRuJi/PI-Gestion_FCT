@@ -1,0 +1,10 @@
+/* footer.component.css */
+.footer {
+  background-color: #a7cae7; /* Misma tonalidad azul o celeste del header */
+  padding: 15px 0;
+}
+
+.footer p {
+  color: #333;
+  font-size: 14px;
+}

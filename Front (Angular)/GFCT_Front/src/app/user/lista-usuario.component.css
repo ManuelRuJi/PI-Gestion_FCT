@@ -1,0 +1,41 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+#cartas{
+  
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(276px, 1fr)) !important;
+  gap: 1rem !important;
+  margin: auto !important;
+}
+.card{
+  justify-self: center;
+}
+.card-header{
+  height: 56px;
+}
+.capitalize{
+  text-transform: capitalize;
+}

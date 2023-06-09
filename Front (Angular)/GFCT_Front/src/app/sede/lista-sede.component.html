@@ -1,0 +1,30 @@
+<app-spinner></app-spinner>
+<div class="container py-4" style="margin-bottom: 64px;">
+    <h2>Lista de Sedes</h2>
+    <a class="btn btn-secondary mb-2" [href]="'sede/create'"><i class="fa-solid fa-square-plus fa-lg" style="color: #a7cae7;"> </i> Nueva Sede</a>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Detalles</th>
+            <th *ngIf="isDocente()">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sede of datos" class="text-center">
+            <td>{{ sede.nombre }}</td>
+            <td>{{ sede.direccion }}</td>
+            <td><a class="btn btn-link" [href]="'sede/'+sede.id"> Detalles sede</a></td>
+            <td *ngIf="isDocente()">
+              <div class="d-flex flex-wrap">
+                <button class="btn btn-danger mr-2 mb-2 w-100" (click)="borrarSede(sede.id)"><i class="fa-solid fa-trash fa-lg" style="color: rgb(28, 25, 25);"> </i> Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+

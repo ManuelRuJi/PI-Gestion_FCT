@@ -1,0 +1,47 @@
+  /* header.component.css */
+  .navbar {
+    background-color: #a7cae7;
+    padding: 15px 0;
+  }
+
+  .logo {
+    width: 50px; /* Ajusta el tamaño del logo según tus necesidades */
+  }
+
+  .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.219);
+  }
+
+  .navbar-nav .nav-item {
+    margin-left: 15px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 18px;
+    color: #333
+  }
+
+  .navbar-right {
+    margin-left: auto;
+  }
+
+  @media (max-width: 767px) {
+    .navbar-nav {
+      margin-top: 10px; /* Ajusta el espacio entre los enlaces y el botón en la versión móvil */
+    }
+
+    .navbar-nav .nav-item {
+      text-align: center;
+      margin-left: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.295);
+    }
+    .navbar-right{
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+  
+  
+  
+  
+  

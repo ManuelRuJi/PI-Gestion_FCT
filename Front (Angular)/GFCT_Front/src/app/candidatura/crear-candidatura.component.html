@@ -1,0 +1,35 @@
+<app-spinner></app-spinner>
+<div class="container py-5" style="margin-bottom: 35px;">
+    <h2 class="p-3">Asignar Candidatura</h2>
+    <form (ngSubmit)="submitForm()" #myForm="ngForm" class="user-container" novalidate #f="ngForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="alumno" class="form-label">Alumno:</label>
+                    <select class="form-select" id="alumno" name="alumno" [(ngModel)]="datos.alumno_id" required>
+                        <option *ngFor="let alumno of datos.alumno" value="{{alumno.id}}">{{alumno.user.email}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="empresa" class="form-label">Empresa:</label>
+                    <select class="form-select" id="empresa" name="empresa" [(ngModel)]="datos.empresa_id" required>
+                        <option *ngFor="let empresa of datos.empresa" value="{{empresa.id}}">{{empresa.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+          </div>
+        <div class="row justify-content-around">
+            <button type="submit" class="btn btn-dark col-md-2 col-4 py-2" [disabled]="!f.valid"><i class="fa-solid fa-upload fa-xl" style="color: #a7cae7;"></i> Guardar</button>
+
+            <a [href]="'empresa'" class="btn btn-danger col-md-2 col-4 py-2"><i class="fa-solid fa-circle-xmark fa-xl"  style="color: rgb(28, 25, 25);"></i> Cancelar</a>
+        </div>
+      </form>
+      <!-- Mostrar errores -->
+    <div *ngIf="errores.length > 0" class="mt-4">
+        <div *ngFor="let error of errores" class="alert alert-danger" role="alert">
+          {{ error }}
+        </div>
+      </div>
+</div>

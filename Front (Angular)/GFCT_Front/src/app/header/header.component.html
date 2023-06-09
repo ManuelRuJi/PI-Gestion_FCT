@@ -1,0 +1,51 @@
+
+<header class="static-top">
+    <nav class="navbar navbar-expand-md navbar-light">
+      <div class="container">
+        <a class="navbar-brand" [href]="''" *ngIf="isDocente()">
+          <img src=".\assets\img\icono.png" alt="Logo GFCT" class="logo">
+        </a>
+        <a class="navbar-brand" [href]="'/usuario/' + userid" *ngIf="isAlumno()">
+          <img src=".\assets\img\icono.png" alt="Logo GFCT" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" >
+          <ul class="navbar-nav mx-auto" *ngIf="isDocente()">
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="./empresa">Empresas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="./sede">Sedes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="./candidatura">Candidaturas</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mx-auto" *ngIf="isAlumno()">
+            <li class="nav-item">
+              <a class="nav-link fw-bold" [href]="'/usuario/' + userid">Mis Datos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" [href]="'/candidatura/alumno/' + userid">Mis Candidaturas</a>
+            </li>
+          </ul>
+          <div class="navbar-right" id="btn_Login" *ngIf="!isLoggedIn()">
+            <a href="./login" class="btn btn-light fw-bold" style="color: #333;">
+              <i class="fa-solid fa-right-to-bracket fa-lg" style="color: rgb(15,47,65);"></i> Login
+            </a>
+          </div>
+          <div class="navbar-right" id="btn_Logout" *ngIf="isLoggedIn()">
+            <button class="btn btn-light fw-bold" style="color: #333;" (click)="logout()">
+              <i class="fa-solid fa-right-from-bracket fa-lg" style="color: rgb(15,47,65);"></i> Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>

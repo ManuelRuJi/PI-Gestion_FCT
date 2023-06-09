@@ -1,0 +1,87 @@
+<app-spinner></app-spinner>
+<div class="container py-5" style="margin-bottom: 64px;">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="candidatura-tab" data-bs-toggle="tab" data-bs-target="#candidatura" type="button" role="tab" aria-controls="candidatura-tab-pane" aria-selected="true">Candidatura</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="alumno-tab" data-bs-toggle="tab" data-bs-target="#alumno" type="button" role="tab" aria-controls="alumno-tab-pane" aria-selected="true">Alumno</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="empresa-tab" data-bs-toggle="tab" data-bs-target="#empresa" type="button" role="tab" aria-controls="empresa-tab-pane" aria-selected="true">Empresa</button>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="candidatura" role="tabpanel" aria-labelledby="candidatura-tab" tabindex="0">
+        <div class="datos-container border">
+          <h2>Datos Candidaturas</h2>
+          <div class="datos-details">
+            <div class="row">
+              <div class="col-md-5">
+                <p><strong>Alumno:</strong>  {{datos.alumno.user.nombre}}</p>
+                <p><strong>Empresa:</strong>  {{datos.empresa.nombre}}</p>
+                <p *ngIf="!edit" class="capitalize"><strong>Estado:</strong>  {{datos.estado}}</p>
+                <form (ngSubmit)="CambiarEstado()" #myForm="ngForm" novalidate #f="ngForm" *ngIf="edit && isDocente()">
+                  <div class="mb-3">
+                    <label for="estado" class="form-label"><strong>Estado:</strong> </label>
+                    <select class="form-select" id="estado" name="estado" [(ngModel)]="datos.estado" required>
+                      <option value="aceptada">Aceptada</option>
+                      <option value="rechazada">Rechazada</option>
+                      <option value="pendiente">Pendiente</option>
+                    </select>
+                  </div>
+                  <!-- otros campos del formulario -->
+                  <button type="submit" class="btn btn-primary">Cambiar</button>
+                  
+                  <button class="btn btn-danger fw-bold float-end"*ngIf="datos.cv!=''" (click)="rellenarCandidatura(this.datos.id);toggleState();">
+                    Cancelar
+                  </button>
+                </form>
+
+                <button class="btn btn-secondary fw-bold mt-2 mb-3" *ngIf="!edit && isDocente()" (click)="toggleState()">
+                  <i class="fa-solid fa-pen-nib fa-lg" style="color:#a7cae7;"></i>Cambiar Estado
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="alumno" role="tabpanel" aria-labelledby="alumno-tab" tabindex="0">
+        <div class="datos-container border">
+            <h2>Datos Alumno</h2>
+            <div class="datos-details">
+              <div class="row">
+                <div class="col-md-6">
+                  <p><strong>Nombre:</strong> {{datos.alumno.user.nombre}}</p>
+                  <p><strong>Edad:</strong> {{datos.alumno.user.edad}}</p>
+                  <p><strong>Email:</strong> {{datos.alumno.user.email}}</p>
+                </div>
+                <div class="col-md-6">
+                  <p><strong>Apellidos:</strong> {{datos.alumno.user.apellidos}}</p>
+                  <p><strong>Teléfono:</strong> {{datos.alumno.user.nombre}}</p>
+                  <p><strong>DNI:</strong> {{datos.alumno.user.dni}}</p>
+                </div>
+              </div>
+              <a class="btn btn-link" [href]="'usuario/'+datos.alumno.id"> Detalles Alumno</a>
+            </div>
+            
+          </div>
+      </div>
+      <div class="tab-pane fade" id="empresa" role="tabpanel" aria-labelledby="empresa-tab" tabindex="0">
+        <div class="datos-container border">
+            <h2>Datos Empresa</h2>
+            <div class="datos-details">
+              <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Nombre:</strong> {{datos.empresa.nombre}}</p>
+                    <p><strong>CIF:</strong> {{datos.empresa.cif}}</p>
+                    <p><strong>Numero empleados:</strong> {{datos.empresa.num_empleado}}</p>
+                </div>
+              </div>
+              <a class="btn btn-link" *ngIf="isDocente()" [href]="'empresa/'+datos.empresa.id"> Detalles Empresa</a>
+            </div>
+            
+        </div>
+      </div>
+    </div>
+  </div>

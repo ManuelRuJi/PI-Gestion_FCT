@@ -1,0 +1,25 @@
+.user-container {
+    margin: 0 auto;
+    background-color: #eaedf0ba;
+    padding: 20px;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+  
+  .user-container h2 {
+    font-size: 24px;
+  }
+  
+  .user-container p.role {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 10px;
+  }
+  
+  .user-details p {
+    margin-bottom: 5px;
+  }
+  .capitalize{
+    text-transform: capitalize;
+}

@@ -1,0 +1,39 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.table-responsive {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+.capitalize{
+  text-transform: capitalize;
+}

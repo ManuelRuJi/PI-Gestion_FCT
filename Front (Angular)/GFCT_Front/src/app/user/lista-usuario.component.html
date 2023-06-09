@@ -1,0 +1,41 @@
+<app-spinner></app-spinner>
+<div class="container py-4" style="margin-bottom: 64px;">
+    <h2>Lista de usuarios</h2>
+    <a class="btn btn-secondary mb-2" [href]="'register'"><i class="fa-solid fa-square-plus fa-lg" style="color: #a7cae7;"> </i> Nuevo Usuario</a>
+
+    <h3 class="my-3 ms-5" style="font-size: 1.5rem; color: #333; margin-top: 2rem;">Docentes:</h3>
+    <div class="mt-5 pt-2 mx-2" id="cartas">
+      <div class="card" style="width: 18rem;" *ngFor="let usuario of datos.docentes">
+        <div class="card-header">
+          <h5 class="card-title">{{ usuario.nombre }} {{ usuario.apellidos }}</h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-body-secondary capitalize"><strong>Rol: </strong>{{ usuario.rol }}</h6>
+          <p class="card-text"><strong>Email: </strong>{{ usuario.email }}</p>
+          
+          <div class="d-flex flex-wrap">
+            <a class="btn btn-link" [href]="'usuario/'+usuario.id"> Detalles usuario</a>
+            <button *ngIf="isDocente()" class="btn btn-danger me-2 mb-2" (click)="borrarUsuario(usuario.id)"><i class="fa-solid fa-trash fa-lg" style="color: rgb(28, 25, 25);"> </i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="my-3 ms-5" style="font-size: 1.5rem; color: #333; margin-top: 2rem;">Alumnos:</h3>
+    <div class="mt-5 pt-2 mx-2" id="cartas">
+      <div class="card" style="width: 18rem;" *ngFor="let usuario of datos.alumnos">
+        <div class="card-header">
+          <h5 class="card-title">{{ usuario.user.nombre }} {{ usuario.user.apellidos }}</h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-body-secondary capitalize"><strong>Rol: </strong>{{ usuario.user.rol }}</h6>
+          <p class="card-text"><strong>Email: </strong>{{ usuario.user.email }}</p>
+          
+          <div class="d-flex flex-wrap">
+            <a class="btn btn-link" [href]="'usuario/'+usuario.user.id"> Detalles usuario</a>
+            <button *ngIf="isDocente()" class="btn btn-danger me-2 mb-2" (click)="borrarAlumno(usuario.user.id)"><i class="fa-solid fa-trash fa-lg" style="color: rgb(28, 25, 25);"> </i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

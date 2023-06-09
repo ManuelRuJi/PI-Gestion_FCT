@@ -1,0 +1,50 @@
+<app-spinner></app-spinner>
+<div class="container py-5 col-9 col-md-10 col-lg-8" style="margin-bottom: 35px;">
+    <h2 class="p-3" >Editar Sede</h2>
+    <form (ngSubmit)="submitForm()" #myForm="ngForm" class="user-container" novalidate #f="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" 
+              [(ngModel)]="datos.nombre" required placeholder="Introduce el Nombre">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Direccion:</label>
+              <input type="text" class="form-control" id="direccion" name="direccion" 
+              [(ngModel)]="datos.direccion" required placeholder="Introduce la Direccion">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="telefono" class="form-label">Telefono:</label>
+                <input type="number" class="form-control" id="telefono" name="telefono" 
+                [(ngModel)]="datos.telefono" required placeholder="Introduce el Telefono">
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="empresa" class="form-label">Empresa:</label>
+                    <select class="form-select" id="empresa" name="empresa" [(ngModel)]="datos.empresa_id" required>
+                        <option *ngFor="let empresa of datos.empresa" value="{{empresa.id}}">{{empresa.nombre}}</option>
+                    </select>
+                </div>
+              </div>
+          </div>
+        <div class="row justify-content-around">
+            <button type="submit" class="btn btn-dark col-md-2 col-4 py-2" [disabled]="!f.valid"><i class="fa-solid fa-upload fa-xl" style="color: #a7cae7;"></i> Guardar</button>
+
+            <a [href]="'/sede/'" class="btn btn-danger col-md-2 col-4 py-2"><i class="fa-solid fa-circle-xmark fa-xl"  style="color: #bfbfbf;"></i> Cancelar</a>
+        </div>
+      </form>
+      <!-- Mostrar errores -->
+    <div *ngIf="errores.length > 0" class="mt-4">
+      <div *ngFor="let error of errores" class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    </div>
+</div>

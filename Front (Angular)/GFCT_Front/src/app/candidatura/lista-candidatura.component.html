@@ -1,0 +1,32 @@
+<app-spinner></app-spinner>
+<div class="container py-4" style="margin-bottom: 64px;">
+    <h2>Lista de Candidaturas</h2>
+    <a class="btn btn-secondary mb-2" [href]="'candidatura/create'"><i class="fa-solid fa-square-plus fa-lg" style="color: #a7cae7;"> </i> Nueva candidatura</a>
+    
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th>Estado</th>
+            <th>Nombre Alumno</th>
+            <th>Nombre Empresa</th>
+            <th>Detalles</th>
+            <th *ngIf="isDocente()">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let candidatura of datos" class="text-center">
+            <td class="capitalize">{{ candidatura.estado }}</td>
+            <td>{{ candidatura.nombreAlumno }}</td>
+            <td>{{ candidatura.nombreEmpresa }}</td>
+            <td><a class="btn btn-link" [href]="'candidatura/'+candidatura.id"> Detalles candidatura</a></td>
+            <td *ngIf="isDocente()">
+              <div class="d-flex flex-wrap">
+                <button class="btn btn-danger mr-2 mb-2 w-100" (click)="borrarCandidatura(candidatura.id)"><i class="fa-solid fa-trash fa-lg" style="color: rgb(28, 25, 25);"> </i> Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
